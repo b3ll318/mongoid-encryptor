@@ -38,7 +38,8 @@ module Mongoid #:nodoc:
       # @return [Object]
       def read_attribute_for_validation(key)
         v = read_attribute(key)
-        v.to_sym.encrypted? ? v.decrypt : v
+        # v.try(:encrypted?) ? v.decrypt : v
+        v.decrypt 
       end
 
       private
